@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_primary">#6C63FF</color>
+    <color name="purple_dark">#4841B8</color>
+    <color name="purple_light">#E8E7FF</color>
+    <color name="accent_color">#FFD700</color>
+
+    <color name="status_pending">#FFB74D</color>
+    <color name="status_delivered">#81C784</color>
+    <color name="status_cancelled">#E57373</color>
+    <color name="status_on_route">#64B5F6</color>
+
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="gray_bg">#F5F5F5</color>
+
+    <!-- Dark Mode -->
+    <color name="dark_background">#121212</color>
+    <color name="dark_surface">#1E1E1E</color>
+    <color name="dark_primary">#9FA8DA</color>
+</resources>

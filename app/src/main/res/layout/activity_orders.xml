@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/gray_bg">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mes commandes"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="16dp"/>
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none"
+        android:paddingHorizontal="16dp"
+        android:layout_marginBottom="16dp">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <!-- Filter chips -->
+            <TextView
+                android:id="@+id/filterAll"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Toutes"
+                android:paddingHorizontal="20dp"
+                android:paddingVertical="8dp"
+                android:background="@drawable/filter_selected_bg"
+                android:textColor="@color/white"
+                android:layout_marginEnd="8dp"/>
+
+            <TextView
+                android:id="@+id/filterPending"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="En cours"
+                android:paddingHorizontal="20dp"
+                android:paddingVertical="8dp"
+                android:background="@drawable/filter_unselected_bg"
+                android:textColor="@color/black"
+                android:layout_marginEnd="8dp"/>
+
+            <TextView
+                android:id="@+id/filterDelivered"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Livrées"
+                android:paddingHorizontal="20dp"
+                android:paddingVertical="8dp"
+                android:background="@drawable/filter_unselected_bg"
+                android:textColor="@color/black"
+                android:layout_marginEnd="8dp"/>
+
+            <TextView
+                android:id="@+id/filterCancelled"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Annulées"
+                android:paddingHorizontal="20dp"
+                android:paddingVertical="8dp"
+                android:background="@drawable/filter_unselected_bg"
+                android:textColor="@color/black"/>
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewOrders"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:paddingHorizontal="16dp"
+        android:clipToPadding="false"/>
+
+    <!-- Bottom Navigation Copy -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        app:menu="@menu/bottom_nav_menu"
+        app:itemIconTint="@color/purple_primary"
+        app:itemTextColor="@color/purple_primary"
+        app:labelVisibilityMode="labeled"/>
+
+</LinearLayout>

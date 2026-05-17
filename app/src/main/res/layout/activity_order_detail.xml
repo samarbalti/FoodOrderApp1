@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray_bg">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp">
+            <ImageView
+                android:id="@+id/btnBackDetail"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@android:drawable/ic_menu_revert"
+                app:tint="@color/black" />
+            <TextView
+                android:id="@+id/tvDetailTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="Détail commande #125"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"/>
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="35dp"
+            android:layout_height="wrap_content"
+            android:text="Client"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/tvDetailClientName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ahmed Ben"
+            android:textColor="@color/black"
+            android:layout_marginTop="4dp"/>
+        <TextView
+            android:id="@+id/tvDetailClientPhone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Num: 55 123 456"
+            android:textColor="#666666"
+            android:textSize="12sp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Adresse"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:layout_marginTop="16dp"/>
+        <TextView
+            android:id="@+id/tvDetailAddress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="10 Rue de la Liberté, Tunis"
+            android:textColor="#666666"
+            android:layout_marginTop="4dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Articles"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:layout_marginTop="16dp"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvDetailItems"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginTop="8dp"/>
+
+        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#DDDDDD" android:layout_marginVertical="12dp"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Total"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:textSize="16sp"/>
+            <TextView
+                android:id="@+id/tvDetailTotal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:text="45 DT"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:textSize="16sp"/>
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tvStatusLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Statut"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="8dp"/>
+
+        <TextView
+            android:id="@+id/tvDetailStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="En cours"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@color/purple_primary"
+            android:padding="12dp"
+            android:background="@drawable/search_bg"
+            android:visibility="gone"/>
+
+        <Spinner
+            android:id="@+id/spinnerStatus"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/search_bg"
+            android:paddingHorizontal="12dp"/>
+
+        <Button
+            android:id="@+id/btnSaveStatus"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:text="Enregistrer"
+            android:textAllCaps="false"
+            android:layout_marginTop="24dp"
+            android:backgroundTint="@color/purple_primary"
+            app:cornerRadius="12dp"/>
+
+        <Button
+            android:id="@+id/btnCancelOrderDetail"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:text="Annuler la commande"
+            android:textAllCaps="false"
+            android:layout_marginTop="12dp"
+            android:backgroundTint="@android:color/holo_red_dark"
+            app:cornerRadius="12dp"
+            android:visibility="gone"/>
+
+    </LinearLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabShare"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="24dp"
+        android:src="@android:drawable/ic_menu_share"
+        app:backgroundTint="@color/purple_light"
+        app:tint="@color/purple_primary"/>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
