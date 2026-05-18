@@ -4,17 +4,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?attr/colorSurface">
+    <!-- Utilise une couleur de surface adaptée au thème (prend en charge le mode sombre) -->
 
-    <com.google.android.material.appbar.AppBarLayout
+    <com.google.android.material.appbar.AppBarLayout 
         android:layout_width="match_parent"
         android:layout_height="300dp"
         android:theme="@style/ThemeOverlay.MaterialComponents.Dark.ActionBar">
+        <!-- région d'en-tête repliable -->
 
         <com.google.android.material.appbar.CollapsingToolbarLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:contentScrim="?attr/colorPrimary"
             app:layout_scrollFlags="scroll|exitUntilCollapsed">
+            <!-- L'image se réduit à une barre d'outils colorée au défilement -->
 
             <ImageView
                 android:id="@+id/imgFoodDetail"
@@ -22,11 +25,13 @@
                 android:layout_height="match_parent"
                 android:scaleType="centerCrop"
                 app:layout_collapseMode="parallax" />
+            <!-- Image alimentaire avec effet de défilement parallaxe -->
 
             <androidx.appcompat.widget.Toolbar
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 app:layout_collapseMode="pin" />
+            <!-- Reste fixé en haut lorsqu'il est replié -->
 
         </com.google.android.material.appbar.CollapsingToolbarLayout>
     </com.google.android.material.appbar.AppBarLayout>
@@ -35,12 +40,14 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        <!-- Associe le défilement à l'effondrement de l'AppBar -->
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:padding="24dp">
+            <!-- Contient du texte -->
 
             <TextView
                 android:id="@+id/tvFoodNameDetail"
@@ -50,6 +57,7 @@
                 android:textSize="28sp"
                 android:textStyle="bold"
                 android:textColor="?attr/colorOnSurface" />
+            <!-- nom d'aliment en gras -->
 
             <TextView
                 android:id="@+id/tvFoodPriceDetail"
@@ -60,6 +68,7 @@
                 android:textColor="@android:color/holo_green_dark"
                 android:textSize="20sp"
                 android:textStyle="bold" />
+            <!-- le prix en vert -->
 
             <TextView
                 android:layout_width="wrap_content"
@@ -69,6 +78,7 @@
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:textColor="?attr/colorOnSurface" />
+            <!-- section header -->
 
             <TextView
                 android:id="@+id/tvFoodDescDetail"
@@ -79,6 +89,7 @@
                 android:textSize="16sp"
                 android:lineSpacingExtra="4dp"
                 android:textColor="?attr/colorOnSurface" />
+            <!--  Description multiligne avec espacement supplémentaire-->
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
@@ -94,5 +105,6 @@
         app:icon="@android:drawable/ic_input_add"
         app:iconTint="@android:color/white"
         app:backgroundTint="?attr/colorPrimary"/>
+    <!-- Bouton d'action flottant ancré en bas à droite -->
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
