@@ -18,37 +18,52 @@ import java.util.List;
 
 public class CartActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
+    //Affiche la liste des produits alimentaires actuellement dans le panier//
     private TextView tvTotal;
+    //Affiche le prix total de tous les articles du panier //
     private Button btnOrder;
+    //Déclenche le processus de passation de commande //
     private List<Food> cartList;
+    // Contient les aliments transmis depuis l'écran précédent //
     private double total = 0;
+    // Cumule la somme des prix de tous les articles //
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        // Point d'entrée au début de l'activité //
         setContentView(R.layout.activity_cart);
+        // pour gonfler la mise en page XML //
 
         cartList = getIntent().getParcelableArrayListExtra("cart");
+        // Récupère les articles du panier à partir de l'intention//
         if (cartList == null) cartList = new ArrayList<>();
-
+        
+        // Initialise les composants d'interface utilisateur //
         recyclerView = findViewById(R.id.recyclerViewCart);
         tvTotal = findViewById(R.id.tvTotal);
         btnOrder = findViewById(R.id.btnOrder);
-
+        
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        //Établit une liste verticale//
         FoodAdapter adapter = new FoodAdapter(cartList, null, false, null);
+        //Crée un FoodAdapter avec null click listener et la valeur false pour admin mode (read-only cart view) //
         recyclerView.setAdapter(adapter);
 
         for (Food f : cartList) total += f.getPrice();
+        //Calcule le prix total en parcourant la liste du panier//
         tvTotal.setText(String.format("Total: %.2f €", total));
+        //Formate et affiche le total comme « Total : XX,XX € »//
 
         btnOrder.setOnClickListener(v -> placeOrder());
+        //Associe la fonction placeOrder() à l'écouteur de clic du bouton de commande//
     }
 
     private void placeOrder() {
         String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
-        
-        // Fetch user info first to include in the order
+        //Récupère l'UID Firebase de l'utilisateur actuellement connecté//
+
+        // Récupérez d'abord les informations de l'utilisateur à inclure dans la commande//
         FirebaseFirestore.getInstance().collection("users").document(userId).get()
             .addOnSuccessListener(document -> {
                 String userName = "Client";
@@ -73,7 +88,9 @@ public class CartActivity extends AppCompatActivity {
                 order.setTotalPrice(total);
                 order.setStatus("En cours");
                 order.setTimestamp(System.currentTimeMillis());
+                //Crée un nouvel objet Commande//
 
+                //Enregistre la commande dans la collection de commandes de Firestore.//
                 FirebaseFirestore.getInstance()
                     .collection("orders")
                     .document(orderId)
@@ -82,6 +99,8 @@ public class CartActivity extends AppCompatActivity {
                         Toast.makeText(this, "Commande passée !", Toast.LENGTH_SHORT).show();
                         finish();
                     })
+                    //En cas de succès : affiche une confirmation Toast et ferme l’activité (finish()).//
+                    //En cas d'échec : affiche le message d'erreur//
                     .addOnFailureListener(e -> {
                         Toast.makeText(this, "Erreur : " + e.getMessage(), Toast.LENGTH_LONG).show();
                     });
