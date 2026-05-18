@@ -5,7 +5,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp">
-
+ <!-- le conteneur empile children de haut en bas -->
+    
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -13,12 +14,14 @@
         android:textSize="24sp"
         android:textStyle="bold"
         android:layout_marginBottom="16dp"/>
+    <!--  En-tête de l'écran-->
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewCart"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"/>
+    <!-- Occupe tout l'espace vertical disponible (hauteur flexible) -->
 
     <TextView
         android:id="@+id/tvTotal"
@@ -28,6 +31,7 @@
         android:textSize="20sp"
         android:textStyle="bold"
         android:layout_marginTop="16dp"/>
+    <!-- Affichage du prix total fixe au-dessus du bouton -->
 
     <Button
         android:id="@+id/btnOrder"
@@ -35,4 +39,5 @@
         android:layout_height="wrap_content"
         android:text="Passer la commande"
         android:layout_marginTop="16dp"/>
+    <!-- Bouton de commande pleine largeur -->
 </LinearLayout>
