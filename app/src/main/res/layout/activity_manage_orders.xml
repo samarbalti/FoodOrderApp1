@@ -6,11 +6,13 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/gray_bg">
+    <!-- arrière plan gris clair -->
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="20dp">
+        <!-- Titre "Gérer les commandes" -->
 
         <ImageView
             android:id="@+id/btnBackOrders"
@@ -29,7 +31,7 @@
             android:textColor="@color/black"/>
     </RelativeLayout>
 
-    <!-- Filter Tabs with Counts -->
+    <!-- Filtrer les onglets avec des nombres -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -37,7 +39,8 @@
         android:paddingHorizontal="10dp"
         android:layout_marginBottom="16dp"
         android:gravity="center">
-
+        <!-- Quatre colonnes égales pour le décompte des statuts -->
+        <!--  Répartition de largeur égale + Identification visuelle de l'état(avec couleurs)-->
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -125,6 +128,7 @@
                 android:textColor="#F44336"
                 android:textSize="12sp"/>
         </LinearLayout>
+        <!-- pour les textviews: Compteurs dynamiques mis à jour depuis Java -->
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
@@ -133,5 +137,6 @@
         android:layout_height="match_parent"
         android:paddingHorizontal="16dp"
         android:clipToPadding="false"/>
+    <!-- Affiche les cartes de commande -->
 
 </LinearLayout>
