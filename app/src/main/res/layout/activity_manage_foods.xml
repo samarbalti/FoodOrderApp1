@@ -6,11 +6,13 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/gray_bg">
+    <!--  arrière plan en gris clair-->
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="20dp">
+        <!--  zone de la barre d'outils-->
 
         <ImageView
             android:id="@+id/btnBackManage"
@@ -18,6 +20,7 @@
             android:layout_height="24dp"
             android:src="@android:drawable/ic_menu_revert"
             app:tint="@color/black" />
+        <!-- Flèche de retour alignée à gauche -->
 
         <TextView
             android:layout_width="wrap_content"
@@ -27,6 +30,7 @@
             android:textSize="18sp"
             android:textStyle="bold"
             android:textColor="@color/black"/>
+        <!-- Titre centré "Gérer les plats" -->
 
         <ImageView
             android:id="@+id/btnAddFoodTop"
@@ -37,6 +41,7 @@
             android:background="@drawable/btn_small_bg"
             android:padding="4dp"
             app:tint="@color/white" />
+        <!-- Bouton d'ajout aligné à droite avec arrière-plan personnalisé -->
     </RelativeLayout>
 
     <androidx.recyclerview.widget.RecyclerView
@@ -45,5 +50,6 @@
         android:layout_height="match_parent"
         android:paddingHorizontal="16dp"
         android:clipToPadding="false"/>
+    <!-- Liste d'aliments ; clipToPadding="false" permet au contenu de défiler sous le remplissage-->
 
 </LinearLayout>
